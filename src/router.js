@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/dashboard',
-      name: 'dashboard',
+      name: 'Dashboard',
       component: Dashboard
     }
   ]

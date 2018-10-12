@@ -1,6 +1,6 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>Title</v-toolbar-title>
+    <v-toolbar-title>MuscuFacile</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
     <v-btn flat icon color="black">
