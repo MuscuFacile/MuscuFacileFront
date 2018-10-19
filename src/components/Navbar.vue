@@ -1,6 +1,7 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>MuscuFacile</v-toolbar-title>
+    <v-toolbar-title><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
+    <v-btn flat><router-link to="/dashboard">Dashboard</router-link></v-btn>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
     <v-btn flat icon color="black">
