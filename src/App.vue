@@ -2,7 +2,9 @@
   <div id="app">
     <v-app>
       <navbar></navbar>
-      <router-view/>
+      <v-container grid-list-md text-xs-center>
+        <router-view/>
+      </v-container>
     </v-app>
   </div>
 </template>
