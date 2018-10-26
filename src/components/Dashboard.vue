@@ -1,7 +1,18 @@
 <template>
   <div>
     <v-layout row wrap>
-      <v-flex xs12>
+      <v-flex xs4>
+        <coach></coach>
+      </v-flex>
+      <v-flex xs4>
+        <imc></imc>
+      </v-flex>
+      <v-flex xs4>
+        <liste></liste>
+      </v-flex>
+    </v-layout>
+    <v-layout>
+      <v-flex xs8>
         <chart></chart>
       </v-flex>
     </v-layout>
@@ -9,12 +20,18 @@
 </template>
 
 <script>
+import Coach from '@/components/Coach'
 import Chart from '@/components/Chart.js'
+import Imc from '@/components/Imc'
+import Liste from '@/components/Liste'
 
 export default {
   name: 'Dashboard',
   components: {
-    Chart
+    Coach,
+    Chart,
+    Imc,
+    Liste
   }
 }
 </script>

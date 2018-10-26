@@ -1,22 +1,26 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
-    <v-btn flat><router-link to="/dashboard">Dashboard</router-link></v-btn>
+    <v-toolbar-title>MuscuFacile</v-toolbar-title>
+    <v-btn flat><router-link to="/">Dashboard</router-link></v-btn>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
-    <v-btn flat icon color="black">
-      <v-icon medium>account_circle</v-icon>
-    </v-btn>
+    <modal-connexion></modal-connexion>
     </v-toolbar-items>
   </v-toolbar>    
 </template>
 
 <script>
+import ModalConnexion from '@/components/ModalConnexion'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: {
+    ModalConnexion
+  }
 }
 </script>
 
 <style lang="stylus" scoped>
-
+a
+  color: black
 </style>

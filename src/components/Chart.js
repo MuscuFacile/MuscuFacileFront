@@ -4,16 +4,12 @@ export default {
   extends: Line,
   mounted () {
     this.renderChart({
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
       datasets: [
         {
-          label: 'Data One',
-          backgroundColor: '#FC2525',
-          data: [40, 39, 10, 40, 39, 80, 40]
-        },{
-          label: 'Data Two',
-          backgroundColor: '#05CBE1',
-          data: [60, 55, 32, 10, 2, 12, 53]
+          label: 'Masse',
+          backgroundColor: '#f87979',
+          data: [70, 72, 76, 74, 75, 78, 80]
         }
       ]
     }, {responsive: true, maintainAspectRatio: false})
