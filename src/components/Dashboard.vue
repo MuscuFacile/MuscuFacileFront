@@ -1,19 +1,20 @@
 <template>
   <div>
     <v-layout row wrap>
-      <v-flex xs4>
+      <v-flex xs4 class="my-2">
         <coach></coach>
       </v-flex>
-      <v-flex xs4>
+      <v-flex xs4 class="my-2">
         <imc></imc>
       </v-flex>
-      <v-flex xs4>
-        <liste></liste>
+      <v-flex xs4 class="my-2">
+        <recommandations></recommandations>
       </v-flex>
-    </v-layout>
-    <v-layout>
-      <v-flex xs8>
-        <chart></chart>
+      <v-flex xs8 class="my-2">
+        <masse-chart></masse-chart>
+      </v-flex>
+      <v-flex xs4 class="my-2">
+        <muscles-chart></muscles-chart>
       </v-flex>
     </v-layout>
   </div>
@@ -21,17 +22,19 @@
 
 <script>
 import Coach from '@/components/Coach'
-import Chart from '@/components/Chart.js'
 import Imc from '@/components/Imc'
-import Liste from '@/components/Liste'
+import Recommandations from '@/components/Recommandations'
+import MasseChart from '@/components/charts/MasseChart'
+import MusclesChart from '@/components/charts/MusclesChart'
 
 export default {
   name: 'Dashboard',
   components: {
     Coach,
-    Chart,
     Imc,
-    Liste
+    Recommandations,
+    MasseChart,
+    MusclesChart
   }
 }
 </script>
