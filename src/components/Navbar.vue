@@ -8,7 +8,7 @@
         <v-icon medium>account_circle</v-icon>
       </v-btn>
     </v-toolbar-items>
-  </v-toolbar>    
+  </v-toolbar>
 </template>
 
 <script>
