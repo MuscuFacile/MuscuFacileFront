@@ -6,17 +6,20 @@
     <v-toolbar-items class="hidden-sm-and-down">
       <v-menu offset-y>
         <v-btn flat icon color="black" slot="activator">
-        <router-link to="/">
           <v-icon medium>account_circle</v-icon>
-        </router-link>
-      </v-btn>
+        </v-btn>
         <v-list>
           <v-list-tile>Profil</v-list-tile>
           <v-list-tile>Réglages</v-list-tile>
-          <router-link to="/signup">
+
+          <router-link to="/login">
             <v-list-tile>Connexion</v-list-tile>
           </router-link>
-          <v-list-tile>Inscription</v-list-tile>
+
+          <router-link to="/signup">
+            <v-list-tile>Inscription</v-list-tile>
+          </router-link>
+
           <v-list-tile>Déconnexion</v-list-tile>
         </v-list>
       </v-menu>
