@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     postForm: function() {
-      const url = Constants.API_LOCALHOST + '/user/...'
+      const url = Constants.API_LOCALHOST + '/user/login'
 
       axios.post(url, {
         email: this.email,
