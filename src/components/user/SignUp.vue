@@ -20,6 +20,11 @@
             <v-spacer></v-spacer>
             <v-btn color="primary" type="submit">S'inscrire</v-btn>
           </v-card-actions>
+          <v-card-text>
+            <v-text>
+              <router-link to="/login">Déjà un compte ?</router-link>
+            </v-text>
+          </v-card-text>
         </v-card>
       </form>
     </v-flex>

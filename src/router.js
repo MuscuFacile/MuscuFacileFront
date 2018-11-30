@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Home from '@/components/statics/Home'
 import Dashboard from '@/components/dashboard/Dashboard'
 import LogIn from '@/components/user/LogIn'
 import SignUp from '@/components/user/SignUp'
@@ -12,6 +13,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
     },
