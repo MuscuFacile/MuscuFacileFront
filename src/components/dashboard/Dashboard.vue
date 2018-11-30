@@ -1,22 +1,24 @@
 <template>
   <div>
-    <v-layout row wrap>
-      <v-flex xs4 class="my-2">
-        <coach></coach>
-      </v-flex>
-      <v-flex xs4 class="my-2">
-        <imc></imc>
-      </v-flex>
-      <v-flex xs4 class="my-2">
-        <recommandations></recommandations>
-      </v-flex>
-      <v-flex xs8 class="my-2">
-        <masse-chart></masse-chart>
-      </v-flex>
-      <v-flex xs4 class="my-2">
-        <muscles-chart></muscles-chart>
-      </v-flex>
-    </v-layout>
+    <v-container grid-list-md text-xs-center>
+      <v-layout row wrap>
+        <v-flex xs4 class="my-2">
+          <coach></coach>
+        </v-flex>
+        <v-flex xs4 class="my-2">
+          <imc></imc>
+        </v-flex>
+        <v-flex xs4 class="my-2">
+          <recommandations></recommandations>
+        </v-flex>
+        <v-flex xs8 class="my-2">
+          <masse-chart></masse-chart>
+        </v-flex>
+        <v-flex xs4 class="my-2">
+          <muscles-chart></muscles-chart>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
 </template>
 

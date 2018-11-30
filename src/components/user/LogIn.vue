@@ -19,6 +19,11 @@
             <v-spacer></v-spacer>
             <v-btn color="primary" type="submit">Se connecter</v-btn>
           </v-card-actions>
+          <v-card-text>
+            <v-text>
+              <router-link to="/signup">Pas encore de compte</router-link>
+            </v-text>
+          </v-card-text>
         </v-card>
       </form>
     </v-flex>

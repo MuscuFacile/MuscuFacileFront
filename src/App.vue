@@ -2,17 +2,15 @@
   <div id="app">
     <v-app>
       <app-navbar></app-navbar>
-      <v-container grid-list-md text-xs-center>
-        <router-view/>
-      </v-container>
+      <router-view/>
       <app-footer></app-footer>
     </v-app>
   </div>
 </template>
 
 <script>
-import AppNavbar from '@/components/Navbar'
-import AppFooter from '@/components/Footer'
+import AppNavbar from '@/components/statics/Navbar'
+import AppFooter from '@/components/statics/Footer'
 
 export default {
   name: 'App',
