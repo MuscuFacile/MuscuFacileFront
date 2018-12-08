@@ -26,9 +26,9 @@
             <v-btn color="primary" type="submit">Se connecter</v-btn>
           </v-card-actions>
           <v-card-text>
-            <v-text>
+            <div>
               <router-link to="/signup">Pas encore de compte</router-link>
-            </v-text>
+            </div>
           </v-card-text>
         </v-card>
       </form>
