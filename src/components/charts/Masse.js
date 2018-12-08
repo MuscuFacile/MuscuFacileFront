@@ -17,6 +17,6 @@ export default {
     }
   },
   mounted () {
-    this.renderChart(this.datacollection, {responsive: true, maintainAspectRatio: false})
+    this.renderChart(this.datacollection, { responsive: true, maintainAspectRatio: false })
   }
 }
