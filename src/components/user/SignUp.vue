@@ -37,7 +37,7 @@
           </v-card-actions>
           <v-card-text>
             <div>
-              <router-link to="/signup">Pas encore de compte</router-link>
+              <router-link to="/login">Déjà un compte ?</router-link>
             </div>
           </v-card-text>
         </v-card>
