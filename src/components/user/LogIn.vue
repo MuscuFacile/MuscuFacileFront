@@ -38,6 +38,7 @@
 
 <script>
 import Constants from '@/config.js'
+import store from '@/store'
 
 import axios from 'axios'
 
@@ -64,7 +65,10 @@ export default {
         pass: this.pass
       })
       .then(response => {
-        this.$router.push('/dashboard')
+        if(response.status === 200 && 'token' in response.data) {
+          store.dispatch('loggingUser')
+          this.$router.push('/dashboard')
+        }
       })
       .catch(error => {
         this.errors.push('Identifiants incorrects.')
