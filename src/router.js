@@ -4,6 +4,7 @@ import store from './store'
 
 import Home from '@/components/statics/Home'
 import Dashboard from '@/components/dashboard/Dashboard'
+import Settings from '@/components/user/Settings'
 import LogIn from '@/components/user/LogIn'
 import SignUp from '@/components/user/SignUp'
 import LogOut from '@/components/user/LogOut'
@@ -25,6 +26,14 @@ const router = new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/settings',
+      name: 'Settings',
+      component: Settings,
       meta: {
         requiresAuth: true
       }
