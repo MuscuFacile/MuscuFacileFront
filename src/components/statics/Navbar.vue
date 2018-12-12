@@ -1,7 +1,7 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
-    <v-btn flat><router-link to="/dashboard">Dashboard</router-link></v-btn>
+    <v-toolbar-title>MuscuFacile</v-toolbar-title>
+    <v-btn flat v-if="this.$store.state.isLoggedIn"><router-link to="/dashboard">Dashboard</router-link></v-btn>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-menu offset-y>
@@ -9,18 +9,27 @@
           <v-icon medium>account_circle</v-icon>
         </v-btn>
         <v-list>
-          <v-list-tile>Profil</v-list-tile>
-          <v-list-tile>Réglages</v-list-tile>
+
+          <router-link to="/profil">
+            <v-list-tile v-if="this.$store.state.isLoggedIn">Profil</v-list-tile>
+          </router-link>
+
+          <router-link to="/settings">
+            <v-list-tile v-if="this.$store.state.isLoggedIn">Réglages</v-list-tile>
+          </router-link>
 
           <router-link to="/login">
-            <v-list-tile>Connexion</v-list-tile>
+            <v-list-tile v-if="!this.$store.state.isLoggedIn">Connexion</v-list-tile>
           </router-link>
 
           <router-link to="/signup">
-            <v-list-tile>Inscription</v-list-tile>
+            <v-list-tile v-if="!this.$store.state.isLoggedIn">Inscription</v-list-tile>
           </router-link>
 
-          <v-list-tile>Déconnexion</v-list-tile>
+          <router-link to="/logout">
+            <v-list-tile v-if="this.$store.state.isLoggedIn">Déconnexion</v-list-tile>
+          </router-link>
+
         </v-list>
       </v-menu>
     </v-toolbar-items>

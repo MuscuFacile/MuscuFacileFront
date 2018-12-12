@@ -13,7 +13,7 @@ import AppNavbar from '@/components/statics/Navbar'
 import AppFooter from '@/components/statics/Footer'
 
 export default {
-  name: 'App',
+  name: 'AppTest',
   components: {
     AppNavbar,
     AppFooter
