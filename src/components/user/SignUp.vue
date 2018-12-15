@@ -76,7 +76,7 @@ export default {
       e.preventDefault()
     },
     postForm: function() {
-      const url = Constants.API_LOCALHOST + '/user/insert'
+      const url = Constants.API_LOCALHOST + 'user/insert'
 
       axios.post(url, {
         email: this.email,

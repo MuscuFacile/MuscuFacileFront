@@ -38,7 +38,7 @@
 
 <script>
 import Constants from '@/config.js'
-import store from '@/store'
+import * as UserService from '@/services/userService.js'
 
 import axios from 'axios'
 
@@ -48,6 +48,7 @@ export default {
     return {
       email: "",
       pass: "",
+      user: null,
       errors: []
     }
   },
@@ -66,8 +67,13 @@ export default {
       })
       .then(response => {
         if(response.status === 200 && 'token' in response.data) {
-          store.dispatch('loggingUser')
-          this.$router.push('/dashboard')
+          
+          UserService.getUser(this.email).then(response => {
+            this.$store.dispatch('loggingUser')
+            this.user = response
+            this.$store.dispatch('setUser', this.user)
+            this.$router.push('/dashboard')
+          })
         }
       })
       .catch(error => {

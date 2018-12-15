@@ -10,7 +10,13 @@ const vuexLocal = new VuexPersistence({
 
 export default new Vuex.Store({
   state: {
-    isLoggedIn: false
+    isLoggedIn: false,
+    user: null
+  },
+  getters: {
+    getUser: state => {
+      return state.user
+    }
   },
   mutations: {
     loggingUser: (state) => {
@@ -18,6 +24,12 @@ export default new Vuex.Store({
     },
     logoutUser: (state) => {
       state.isLoggedIn = false
+    },
+    setUser: (state, user) => {
+      state.user = user
+    },
+    unsetUser: (state) => {
+      state.user = null
     }
   },
   actions: {
@@ -26,6 +38,12 @@ export default new Vuex.Store({
     },
     logoutUser: ({ commit }) => {
       commit('logoutUser')
+    },
+    setUser: ({ commit }, user) => {
+      commit('setUser', user)
+    },
+    unsetUser: ({ commit }) => {
+      commit('unsetUser')
     }
   },
   plugins: [vuexLocal.plugin]

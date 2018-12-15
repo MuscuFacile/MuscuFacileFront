@@ -14,6 +14,7 @@ export default {
   methods: {
     logout: function() {
       this.$store.dispatch('logoutUser')
+      this.$store.dispatch('unsetUser')
       this.$router.push('/')
     }
   }
