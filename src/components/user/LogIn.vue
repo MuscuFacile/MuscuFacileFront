@@ -44,7 +44,7 @@ export default {
   name: 'LogIn',
   data: function() {
     return {
-      email: "floquet.cyprien@gmail.com",
+      email: "",
       pass: "",
       user: null,
       errors: []
