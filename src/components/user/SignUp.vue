@@ -49,8 +49,6 @@
 <script>
 import Constants from '@/config.js'
 
-import axios from 'axios'
-
 export default {
   name: 'SignUp',
   data: function() {
@@ -78,7 +76,7 @@ export default {
     postForm: function() {
       const url = Constants.API_LOCALHOST + 'user/insert'
 
-      axios.post(url, {
+      this.$http.post(url, {
         email: this.email,
         pass: this.pass
       })

@@ -13,7 +13,3 @@ export const getUser = email => {
       console.log(error)
     })        
 }
-
-export const updateUser = email => {
-  
-}

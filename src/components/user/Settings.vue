@@ -78,8 +78,6 @@
 import Constants from '@/config.js'
 import * as UserService from '@/services/userService.js'
 
-import axios from 'axios'
-
 export default {
   name: 'Settings',
   data: function() {

@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import * as UserService from '@/services/userService.js'
+
 export default {
   name: 'Logout',
   data: function() {
