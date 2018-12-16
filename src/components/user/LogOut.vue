@@ -13,8 +13,8 @@ export default {
   },
   methods: {
     logout: function() {
-      this.$store.dispatch('logoutUser')
-      this.$store.dispatch('unsetUser')
+      this.$store.dispatch('users/logoutUser')
+      this.$store.dispatch('users/unsetUser')
       this.$router.push('/')
     }
   }

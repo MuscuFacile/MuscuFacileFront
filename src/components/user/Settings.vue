@@ -29,7 +29,6 @@
           
         <v-flex>
           <v-text-field
-            v-model="this.user.email"
             name="email"
             label="Adresse email"
             id="email"
@@ -91,7 +90,7 @@ export default {
     }
   },
   created: function() {
-    this.user = this.$store.getters.getUser
+    //this.user = this.$store.user.getUser()
   },
   methods: {
     checkForm: function(e) {

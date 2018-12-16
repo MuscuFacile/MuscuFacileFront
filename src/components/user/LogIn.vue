@@ -46,7 +46,7 @@ export default {
   name: 'LogIn',
   data: function() {
     return {
-      email: "",
+      email: "floquet.cyprien@gmail.com",
       pass: "",
       user: null,
       errors: []
@@ -67,11 +67,11 @@ export default {
       })
       .then(response => {
         if(response.status === 200 && 'token' in response.data) {
-          
+
           UserService.getUser(this.email).then(response => {
-            this.$store.dispatch('loggingUser')
+            this.$store.dispatch('users/loggingUser') 
             this.user = response
-            this.$store.dispatch('setUser', this.user)
+            this.$store.dispatch('users/setUser', this.user)
             this.$router.push('/dashboard')
           })
         }
