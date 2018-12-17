@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import Constants from '@/config.js'
 import * as UserService from '@/services/userService.js'
 
 export default {
@@ -57,25 +56,25 @@ export default {
       e.preventDefault()
     },
     postForm: function() {
-      const url = Constants.API_LOCALHOST + '/user/login'
-
-      this.$http.post(url, {
-        email: this.email,
-        pass: this.pass
-      })
+      UserService.logUser(this.email, this.pass)
         .then(response => {
           if(response.status === 200 && 'token' in response.data) {
 
-            UserService.getUser(this.email).then(response => {
-              this.$store.dispatch('users/loggingUser') 
-              this.user = response
-              this.$store.dispatch('users/setUser', this.user)
-              this.$router.push('/dashboard')
-            })
+            UserService.getUser(this.email)
+              .then(response => {
+                this.$store.dispatch('users/loggingUser')
+                this.user = response
+                this.$store.dispatch('users/setUser', this.user)
+                this.$router.push('/dashboard')
+              })
+              .catch(error => {
+                this.errors.push('Identifiants incorrects.')
+              })
           }
         })
         .catch(error => {
-          this.errors.push('Identifiants incorrects.')
+          this.errors.push('La connexion n\'a pas pu aboutir.')
+          console.log(error)
         })
     }
   }

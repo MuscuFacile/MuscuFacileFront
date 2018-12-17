@@ -29,6 +29,7 @@
           
         <v-flex>
           <v-text-field
+            v-model="this.user.email"
             name="email"
             label="Adresse email"
             id="email"
@@ -75,7 +76,6 @@
 </template>
 
 <script>
-import Constants from '@/config.js'
 import * as UserService from '@/services/userService.js'
 
 export default {
@@ -88,7 +88,7 @@ export default {
     }
   },
   created: function() {
-    //this.user = this.$store.user.getUser()
+    this.user = this.$store.getters['users/getUser']
   },
   methods: {
     checkForm: function(e) {

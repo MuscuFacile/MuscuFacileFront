@@ -7,7 +7,6 @@ import axios from 'axios'
 import Vuetify from 'vuetify'
 
 Vue.config.productionTip = false
-Vue.prototype.$http = axios
 
 Vue.use(Vuetify, {
   iconfont: 'fa'
