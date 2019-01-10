@@ -37,10 +37,7 @@
 </template>
 
 <script>
-import Constants from '@/config.js'
-import store from '@/store'
-
-import axios from 'axios'
+import * as UserService from '@/services/userService.js'
 
 export default {
   name: 'LogIn',
@@ -48,6 +45,7 @@ export default {
     return {
       email: "",
       pass: "",
+      user: null,
       errors: []
     }
   },
@@ -58,21 +56,26 @@ export default {
       e.preventDefault()
     },
     postForm: function() {
-      const url = Constants.API_LOCALHOST + '/user/login'
+      UserService.logUser(this.email, this.pass)
+        .then(response => {
+          if(response.status === 200 && 'token' in response.data) {
 
-      axios.post(url, {
-        email: this.email,
-        pass: this.pass
-      })
-      .then(response => {
-        if(response.status === 200 && 'token' in response.data) {
-          store.dispatch('loggingUser')
-          this.$router.push('/dashboard')
-        }
-      })
-      .catch(error => {
-        this.errors.push('Identifiants incorrects.')
-      })
+            UserService.getUser(this.email)
+              .then(response => {
+                this.$store.dispatch('users/loggingUser')
+                this.user = response.data
+                this.$store.dispatch('users/setUser', this.user)
+                this.$router.push('/dashboard')
+              })
+              .catch(error => {
+                this.errors.push('Identifiants incorrects.')
+              })
+          }
+        })
+        .catch(error => {
+          this.errors.push('La connexion n\'a pas pu aboutir.')
+          console.log(error)
+        })
     }
   }
 }
