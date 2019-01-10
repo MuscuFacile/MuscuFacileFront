@@ -47,9 +47,7 @@
 </template>
 
 <script>
-import Constants from '@/config.js'
-
-import axios from 'axios'
+import * as UserService from '@/services/userService.js'
 
 export default {
   name: 'SignUp',
@@ -76,21 +74,16 @@ export default {
       e.preventDefault()
     },
     postForm: function() {
-      const url = Constants.API_LOCALHOST + '/user/insert'
-
-      axios.post(url, {
-        email: this.email,
-        pass: this.pass
-      })
-      .then(response => {
-        this.isSignUpOk = true
-      })
-      .catch(error => {
-        this.errors.push('L\'inscription n\'a pas pu aboutir.')
-      })
+      UserService.insertUser(this.email, this.pass)
+        .then(response => {
+          this.isSignUpOk = true
+        })
+        .catch(error => {
+          this.errors.push('L\'inscription n\'a pas pu aboutir.')
+        })
     }
   }
-};
+}
 </script>
 
 <style lang="stylus" scoped>

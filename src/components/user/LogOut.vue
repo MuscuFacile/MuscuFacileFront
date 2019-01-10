@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import * as UserService from '@/services/userService.js'
+
 export default {
   name: 'Logout',
   data: function() {
@@ -13,7 +15,8 @@ export default {
   },
   methods: {
     logout: function() {
-      this.$store.dispatch('logoutUser')
+      this.$store.dispatch('users/logoutUser')
+      this.$store.dispatch('users/unsetUser')
       this.$router.push('/')
     }
   }

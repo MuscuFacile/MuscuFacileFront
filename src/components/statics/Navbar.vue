@@ -1,7 +1,7 @@
 <template>
   <v-toolbar>
     <v-toolbar-title>MuscuFacile</v-toolbar-title>
-    <v-btn flat v-if="this.$store.state.isLoggedIn"><router-link to="/dashboard">Dashboard</router-link></v-btn>
+    <v-btn flat v-if="isLoggedIn"><router-link to="/dashboard">Dashboard</router-link></v-btn>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-menu offset-y>
@@ -11,23 +11,23 @@
         <v-list>
 
           <router-link to="/profil">
-            <v-list-tile v-if="this.$store.state.isLoggedIn">Profil</v-list-tile>
+            <v-list-tile v-if="isLoggedIn">Profil</v-list-tile>
           </router-link>
 
           <router-link to="/settings">
-            <v-list-tile v-if="this.$store.state.isLoggedIn">Réglages</v-list-tile>
+            <v-list-tile v-if="isLoggedIn"> Réglages</v-list-tile>
           </router-link>
 
           <router-link to="/login">
-            <v-list-tile v-if="!this.$store.state.isLoggedIn">Connexion</v-list-tile>
+            <v-list-tile v-if="!isLoggedIn">Connexion</v-list-tile>
           </router-link>
 
           <router-link to="/signup">
-            <v-list-tile v-if="!this.$store.state.isLoggedIn">Inscription</v-list-tile>
+            <v-list-tile v-if="!isLoggedIn">Inscription</v-list-tile>
           </router-link>
 
           <router-link to="/logout">
-            <v-list-tile v-if="this.$store.state.isLoggedIn">Déconnexion</v-list-tile>
+            <v-list-tile v-if="isLoggedIn">Déconnexion</v-list-tile>
           </router-link>
 
         </v-list>
@@ -37,9 +37,17 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from 'vuex'
+
+const { mapState } = createNamespacedHelpers('users')
 
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  computed: {
+    ...mapState({
+      isLoggedIn: state => state.isLoggedIn
+    })
+  }
 }
 </script>
 
