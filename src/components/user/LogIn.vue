@@ -63,7 +63,7 @@ export default {
             UserService.getUser(this.email)
               .then(response => {
                 this.$store.dispatch('users/loggingUser')
-                this.user = response
+                this.user = response.data
                 this.$store.dispatch('users/setUser', this.user)
                 this.$router.push('/dashboard')
               })

@@ -29,3 +29,10 @@ export const logUser = (email, password) => {
 
   return axios.post(url, params)
 }
+
+export const updateUser = (email, data) => {
+  const url = `${Constants.API_LOCALHOST}/user/details/${email}`
+
+  console.log(data)
+  return axios.patch(url, data)
+}
