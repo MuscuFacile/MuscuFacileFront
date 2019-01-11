@@ -3,19 +3,19 @@ import Constants from '@/config.js'
 import axios from 'axios'
 
 export const getUser = email => {
-  const url = `${Constants.API_LOCALHOST}/user/details/${email}`
+  const url = `${Constants.API_LOCALHOST}/users/${email}`
 
   return axios.get(url)
 }
 
 export const getIMC = email => {
-  const url = `${Constants.API_LOCALHOST}/user/calculIMC/${email}`
+  const url = `${Constants.API_LOCALHOST}/users/${email}/imc`
 
   return axios.get(url)
 }
 
 export const insertUser = (email, password) => {
-  const url = `${Constants.API_LOCALHOST}/user/insert`
+  const url = `${Constants.API_LOCALHOST}/users`
 
   const params = {
     email: email,
@@ -26,7 +26,7 @@ export const insertUser = (email, password) => {
 }
 
 export const logUser = (email, password) => {
-  const url = `${Constants.API_LOCALHOST}/user/login`
+  const url = `${Constants.API_LOCALHOST}/users/login`
 
   const params = {
     email: email,
@@ -37,7 +37,7 @@ export const logUser = (email, password) => {
 }
 
 export const updateUser = (email, data) => {
-  const url = `${Constants.API_LOCALHOST}/user/details/${email}`
+  const url = `${Constants.API_LOCALHOST}/users/${email}`
 
   return axios.patch(url, data)
 }
