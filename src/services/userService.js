@@ -14,10 +14,16 @@ export const getIMC = email => {
   return axios.get(url)
 }
 
-export const getUserMasses = email => {
+export const getUserWeights = email => {
   const url = `${Constants.API_LOCALHOST}/users/${email}/poids`
 
   return axios.get(url)
+}
+
+export const insertUserWeight = (email, data) => {
+  const url = `${Constants.API_LOCALHOST}/users/${email}/poids`
+
+  return axios.post(url, data)
 }
 
 export const insertUser = (email, password) => {

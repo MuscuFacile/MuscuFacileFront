@@ -9,7 +9,7 @@ import LogIn from '@/components/user/LogIn'
 import SignUp from '@/components/user/SignUp'
 import LogOut from '@/components/user/LogOut'
 import Exercices from '@/components/exercices/Exercices'
-import Masse from '@/components/user/Masse'
+import Weights from '@/components/user/Weights'
 
 Vue.use(Router)
 
@@ -65,9 +65,9 @@ const router = new Router({
       }
     },
     {
-      path: '/masse',
-      name: 'Masse',
-      component: Masse,
+      path: '/weights',
+      name: 'Weights',
+      component: Weights,
       meta: {
         requiresAuth: true
       }
