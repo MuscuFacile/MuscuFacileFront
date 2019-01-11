@@ -20,8 +20,8 @@ export default {
     }
   },
   methods: {
-    getMassesFromUser: function() {
-      UserService.getUserMasses(this.user.email)
+    getWeightsFromUser: function() {
+      UserService.getUserWeights(this.user.email)
         .then(response => {
           
           for(var i = 0; i < response.data.length; i++) {
@@ -40,6 +40,6 @@ export default {
   },
   created () {
     this.user = this.$store.getters['users/getUser']
-    this.getMassesFromUser()
+    this.getWeightsFromUser()
   }
 }
