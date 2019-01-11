@@ -8,6 +8,7 @@ import Settings from '@/components/user/Settings'
 import LogIn from '@/components/user/LogIn'
 import SignUp from '@/components/user/SignUp'
 import LogOut from '@/components/user/LogOut'
+import Exercices from '@/components/exercices/Exercices'
 
 Vue.use(Router)
 
@@ -58,6 +59,14 @@ const router = new Router({
       path: '/logout',
       name: 'Log out',
       component: LogOut,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/exercices',
+      name: 'Exercices',
+      component: Exercices,
       meta: {
         requiresAuth: true
       }
