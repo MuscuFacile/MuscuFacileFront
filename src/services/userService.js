@@ -8,6 +8,12 @@ export const getUser = email => {
   return axios.get(url)
 }
 
+export const getIMC = email => {
+  const url = `${Constants.API_LOCALHOST}/user/calculIMC/${email}`
+
+  return axios.get(url)
+}
+
 export const insertUser = (email, password) => {
   const url = `${Constants.API_LOCALHOST}/user/insert`
 
@@ -33,6 +39,5 @@ export const logUser = (email, password) => {
 export const updateUser = (email, data) => {
   const url = `${Constants.API_LOCALHOST}/user/details/${email}`
 
-  console.log(data)
   return axios.patch(url, data)
 }
