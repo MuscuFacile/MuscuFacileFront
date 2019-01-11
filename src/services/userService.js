@@ -14,6 +14,12 @@ export const getIMC = email => {
   return axios.get(url)
 }
 
+export const getUserMasses = email => {
+  const url = `${Constants.API_LOCALHOST}/users/${email}/poids`
+
+  return axios.get(url)
+}
+
 export const insertUser = (email, password) => {
   const url = `${Constants.API_LOCALHOST}/users`
 

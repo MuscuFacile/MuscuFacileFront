@@ -9,6 +9,7 @@ import LogIn from '@/components/user/LogIn'
 import SignUp from '@/components/user/SignUp'
 import LogOut from '@/components/user/LogOut'
 import Exercices from '@/components/exercices/Exercices'
+import Masse from '@/components/user/Masse'
 
 Vue.use(Router)
 
@@ -59,6 +60,14 @@ const router = new Router({
       path: '/logout',
       name: 'Log out',
       component: LogOut,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/masse',
+      name: 'Masse',
+      component: Masse,
       meta: {
         requiresAuth: true
       }

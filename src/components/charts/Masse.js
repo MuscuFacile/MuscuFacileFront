@@ -1,22 +1,45 @@
 import { Line } from 'vue-chartjs'
 
+import * as UserService from '@/services/userService.js'
+
 export default {
   extends: Line,
   data () {
     return {
+      user: null,
       datacollection: {
-        labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet'],
+        labels: [],
         datasets: [
           {
             label: 'Masse',
             backgroundColor: '#f87979',
-            data: [70, 72, 76, 74, 75, 78, 80]
+            data: []
           }
         ]
       }
     }
   },
-  mounted () {
-    this.renderChart(this.datacollection, { responsive: true, maintainAspectRatio: false })
+  methods: {
+    getMassesFromUser: function() {
+      UserService.getUserMasses(this.user.email)
+        .then(response => {
+          
+          for(var i = 0; i < response.data.length; i++) {
+            var date = new Date(response.data[i].date)
+            this.datacollection.labels.push(date.toLocaleDateString())
+            this.datacollection.datasets[0].data.push(response.data[i].poids)
+          }
+
+          this.renderChart(this.datacollection, { responsive: true, maintainAspectRatio: false })
+
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
+  },
+  created () {
+    this.user = this.$store.getters['users/getUser']
+    this.getMassesFromUser()
   }
 }
