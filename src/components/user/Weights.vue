@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap>
     <v-flex xs12 class="text-xs-center" mt-5>
-      <h1>Pesée</h1>
+      <h1>Mes pesées</h1>
     </v-flex>
     <v-flex xs12 sm6 offset-sm3 mt-3>
 
@@ -24,21 +24,43 @@
         </v-alert>
       </p>
 
-      <v-data-table
-        :headers="headers"
-        :items="weights"
-        class="elevation-1"
-      >
+      <form @submit="checkForm">
+        <v-layout column mt-5>
+          <h2>Ajouter une pesée</h2>
+          <v-flex>
+            <v-text-field
+              v-model="weight"
+              name="Pesée"
+              label="Masse (en kg)"
+              id="weight"
+              type="number"
+              required
+            ></v-text-field>
+          </v-flex>
 
-      <template slot="items" slot-scope="props">
-        <td>{{ props.item.weight }}</td>
-        <td class="text-xs-right">{{ props.item.date }}</td>
-      </template>
+          <v-flex class="text-xs-center">
+            <v-btn color="success" type="submit">Ajouter</v-btn>
+          </v-flex>
 
-    </v-data-table>
+        </v-layout>
+      </form>
 
-  </v-flex>
-</v-layout>
+      <v-layout column mb-5>
+        <h2>Mon historique</h2>
+        <v-data-table
+          :headers="headers"
+          :items="weights"
+          class="elevation-1"
+        >
+          <template slot="items" slot-scope="props">
+            <td>{{ props.item.weight }}</td>
+            <td class="text-xs-right">{{ props.item.date }}</td>
+          </template>
+        </v-data-table>
+      </v-layout>
+
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
@@ -50,6 +72,7 @@ export default {
     return {
       user: null,
       isWeightAdded: false,
+      weight: "",
       weights: [],
       errors: [],
       headers: [
@@ -68,6 +91,28 @@ export default {
     this.getWeightsFromUser()
   },
   methods: {
+    checkForm: function(e) {
+      this.isWeightAdded = false
+      this.errors = []
+      this.postForm()
+      e.preventDefault()
+    },
+    postForm: function() {
+      const data = {
+        date: new Date().getTime(),
+        poids: this.weight
+      }
+
+      console.log(data)
+      
+      UserService.insertUserWeight(this.user.email, data)
+        .then(response => {
+          this.isWeightAdded = true
+        })
+        .catch(error => {
+          this.errors.push('La modification n\'a pas pu aboutir.')
+        })
+    },
     getWeightsFromUser: function() {
       UserService.getUserWeights(this.user.email)
         .then(response => {
