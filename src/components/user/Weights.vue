@@ -14,6 +14,15 @@
         </v-alert>
       </p>
 
+      <p v-if="isWeightDeleted">
+        <v-alert
+          :value="true"
+          type="success"
+        >
+        Pesée supprimée avec succes.
+        </v-alert>
+      </p>
+
       <p v-if="errors.length">
         <v-alert
           v-for="error in errors" :key="error"
@@ -54,7 +63,8 @@
         >
           <template slot="items" slot-scope="props">
             <td>{{ props.item.weight }}</td>
-            <td class="text-xs-right">{{ props.item.date }}</td>
+            <td class="text-xs-left">{{ props.item.date.toLocaleDateString() }}</td>
+            <td><v-btn color="error" v-on:click="deleteWeight(props.item.date)">Supprimer</v-btn></td>
           </template>
         </v-data-table>
       </v-layout>
@@ -72,6 +82,7 @@ export default {
     return {
       user: null,
       isWeightAdded: false,
+      isWeightDeleted: false,
       weight: "",
       weights: [],
       errors: [],
@@ -83,6 +94,7 @@ export default {
           value: 'name'
         },
         { text: 'Date', value: 'date' },
+        { text: 'Action', value: 'action' }
       ]
     }
   },
@@ -97,29 +109,43 @@ export default {
       this.postForm()
       e.preventDefault()
     },
+    deleteWeight: function(weightDate) {
+      this.isWeightDeleted = false
+      this.errors = []
+
+      UserService.deleteUserWeight(this.user.email, weightDate.getTime())
+        .then(response => {
+          this.isWeightDeleted = true
+          this.getWeightsFromUser()
+        })
+        .catch(error => {
+          this.errors.push('La suppresion n\'a pas pu aboutir.')
+        })
+    },
     postForm: function() {
       const data = {
         date: new Date().getTime(),
-        poids: this.weight
+        poids: parseInt(this.weight)
       }
-
-      console.log(data)
       
       UserService.insertUserWeight(this.user.email, data)
         .then(response => {
           this.isWeightAdded = true
+          this.getWeightsFromUser()
         })
         .catch(error => {
           this.errors.push('La modification n\'a pas pu aboutir.')
         })
     },
     getWeightsFromUser: function() {
+      this.weights = []
+      
       UserService.getUserWeights(this.user.email)
         .then(response => {
           
           for(var i = 0; i < response.data.length; i++) {
             var weight = {
-              date: new Date(response.data[i].date).toLocaleDateString(),
+              date: new Date(response.data[i].date),
               weight: response.data[i].poids
             }
 
