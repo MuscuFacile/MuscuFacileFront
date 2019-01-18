@@ -12,7 +12,9 @@
           </v-card-title>
 
           <v-card-actions>
-            <v-btn flat color="orange">See more</v-btn>
+            <router-link :to="{ name: 'Exercice', params: { id: exercice.id }}">
+              <v-btn flat color="orange">See more</v-btn>
+            </router-link>
           </v-card-actions>
         </v-card>
       </v-flex>
