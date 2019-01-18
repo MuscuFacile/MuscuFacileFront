@@ -1,10 +1,10 @@
 <template>
   <v-container>
-    <h1>{{ exercice.name | htmlFilter }} <v-chip color="success" class="white--text">Catégorie : {{ category }}</v-chip></h1>
+    <h1>{{ exercice.name }} <v-chip color="success" class="white--text">Catégorie : {{ category }}</v-chip></h1>
     <v-layout row wrap>
       <v-flex xs12>
         <h2>Description</h2> 
-        <p>{{ exercice.description }}</p>
+        <p>{{ exercice.description | html }}</p>
       </v-flex>
     </v-layout>
   </v-container>
@@ -52,10 +52,10 @@ export default {
     }
   },
   filters: {
-    htmlFilter: function(value) {
+    html: function(value) {
       if (!value) return ''
       return value.replace(/<\/?[^>]+(>|$)/g, "")
-    },
+    }
   }
 }
 </script>

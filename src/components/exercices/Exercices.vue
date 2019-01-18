@@ -18,7 +18,7 @@
           <v-card-title primary-title>
             <div>
               <h3 class="headline mb-0">{{ exercice.name }}</h3>
-              <div>{{ exercice.description }}</div>
+              <div>{{ exercice.description | html }}</div>
             </div>
           </v-card-title>
 
@@ -65,6 +65,12 @@ export default {
         .catch(error => {
           this.errors.push('Impossible d\'afficher les exercices.')
         })
+    }
+  },
+  filters: {
+    html: function(value) {
+      if (!value) return ''
+      return value.replace(/<\/?[^>]+(>|$)/g, "")
     }
   }
 }
