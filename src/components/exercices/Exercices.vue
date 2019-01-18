@@ -2,6 +2,17 @@
   <v-container>
     <h1>Exercices</h1>
     <v-layout row wrap>
+
+      <p v-if="errors.length">
+        <v-alert
+          v-for="error in errors" :key="error"
+          :value="true"
+          type="error"
+        >
+        {{ error }}
+        </v-alert>
+      </p>
+
       <v-flex xs4 class="my-2" v-for="exercice in exercices" :key="exercice.id">
         <v-card height="100%">
           <v-card-title primary-title>
