@@ -13,7 +13,20 @@
         </v-alert>
       </p>
 
-      <v-flex xs4 class="my-2" v-for="exercice in exercices" :key="exercice.id">
+      <v-radio-group v-model="selectedCategory">
+        <v-flex xs12>     
+          <v-layout row wrap>
+            <v-radio
+              v-for="category in categories"
+              :key="category.id"
+              :label="`${category.name}`"
+              :value="category.id"
+            ></v-radio>
+          </v-layout>
+        </v-flex>
+      </v-radio-group>
+
+      <v-flex class="my-2" v-for="exercice in filteredExercices" :key="exercice.id">
         <v-card height="100%">
           <v-card-title primary-title>
             <div>
@@ -24,7 +37,7 @@
 
           <v-card-actions>
             <router-link :to="{ name: 'Exercice', params: { id: exercice.id }}">
-              <v-btn flat color="orange">See more</v-btn>
+              <v-btn flat color="grey darken-4">See more</v-btn>
             </router-link>
           </v-card-actions>
         </v-card>
@@ -35,6 +48,7 @@
 
 <script>
 import * as ExercicesService from '@/services/exercicesService.js'
+import * as CategoriesService from '@/services/categoriesService.js'
 
 export default {
   name: 'Exercices',
@@ -42,12 +56,15 @@ export default {
     return {
       user: null,
       exercices: [],
+      categories: [],
+      selectedCategory: "0",
       errors: []
     }
   },
   created: function() {
     this.user = this.$store.getters['users/getUser']
     this.getAllExercices()
+    this.getAllCategories()
   },
   methods: {
     getAllExercices: function() {
@@ -65,8 +82,41 @@ export default {
         .catch(error => {
           this.errors.push('Impossible d\'afficher les exercices.')
         })
+    },
+    getAllCategories: function() {
+      this.errors = []
+      const allCategory = {
+        id: "0",
+        name: "All"
+      }
+      this.categories.push(allCategory)
+
+      CategoriesService.getAllCategories()
+        .then(response => {
+          var exercicesCategories = response.data
+          for(var i = 0; i < exercicesCategories.length; i++) {
+            this.categories.push(exercicesCategories[i])
+          }
+        })
+        .catch(error => {
+          this.errors.push('Error')
+        })
     }
   },
+  computed: {
+		filteredExercices: function() {
+      var vm = this
+      var category = vm.selectedCategory
+
+			if(category === "0") {
+				return vm.exercices
+			} else {
+				return vm.exercices.filter(function(exercice) {
+					return exercice.category == category
+				})
+			}
+    }
+	},
   filters: {
     html: function(value) {
       if (!value) return ''
