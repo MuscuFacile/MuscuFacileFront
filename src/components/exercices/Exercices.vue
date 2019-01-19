@@ -13,17 +13,14 @@
         </v-alert>
       </p>
 
-      <v-radio-group v-model="selectedCategory">
-        <v-flex xs12>     
-          <v-layout row wrap>
-            <v-radio
-              v-for="category in categories"
-              :key="category.id"
-              :label="`${category.name}`"
-              :value="category.id"
-            ></v-radio>
-          </v-layout>
-        </v-flex>
+      <v-radio-group row v-model="selectedCategory">
+        <v-radio
+          v-for="category in categories"
+          :key="category.id"
+          :label="`${category.name}`"
+          :value="category.id"
+          color="grey darken-4"
+        ></v-radio>  
       </v-radio-group>
 
       <v-flex class="my-2" v-for="exercice in filteredExercices" :key="exercice.id">
