@@ -10,7 +10,7 @@
           :value="true"
           type="success"
         >
-        Pesée ajoutée avec succes.
+        Pesée ajoutée avec succès.
         </v-alert>
       </p>
 
@@ -19,7 +19,7 @@
           :value="true"
           type="success"
         >
-        Pesée supprimée avec succes.
+        Pesée supprimée avec succès.
         </v-alert>
       </p>
 
