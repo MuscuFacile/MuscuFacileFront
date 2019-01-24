@@ -19,7 +19,8 @@
       </v-card-text>
 
       <v-card-text class="pt-0">
-        Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        MuscuFacile est la solution pour gérer vos entrainements, votre suivi de poids. Une liste d'exercices est disponible avec une description détaillée pour chacun d'eux.
+                  Avec MuscuFacile vous n'avez plus à vous souciez de rechercher pendant des heures l'exercice parfait pour atteindre votre objectif.
       </v-card-text>
 
       <v-divider></v-divider>
