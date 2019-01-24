@@ -14,7 +14,7 @@
 
       <v-card-title primary-title>
         <div>
-          <div>"Si le corps est une épée, l'esprit est le fourreau qui permet de garder l'épée bien aiguisée."</div>
+          <blockquote class="blockquote">Tout se passe hors de ta zone de confort</blockquote>
         </div>
       </v-card-title>
     </v-card>
@@ -27,5 +27,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
 </style>

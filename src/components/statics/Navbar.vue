@@ -1,6 +1,7 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>MuscuFacile</v-toolbar-title>
+    <v-toolbar-title v-if="!isLoggedIn"><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
+    <v-toolbar-title v-if="isLoggedIn"><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
     <v-btn flat v-if="isLoggedIn"><router-link to="/dashboard">Dashboard</router-link></v-btn>
     <v-btn flat v-if="isLoggedIn"><router-link to="/weights">Pesée</router-link></v-btn>
     <v-btn flat v-if="isLoggedIn"><router-link to="/exercices">Exercices</router-link></v-btn>
@@ -11,10 +12,6 @@
           <v-icon medium>account_circle</v-icon>
         </v-btn>
         <v-list>
-
-          <router-link to="/profil">
-            <v-list-tile v-if="isLoggedIn">Profil</v-list-tile>
-          </router-link>
 
           <router-link to="/settings">
             <v-list-tile v-if="isLoggedIn"> Réglages</v-list-tile>

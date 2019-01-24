@@ -33,6 +33,17 @@
           </ul>
         </div>
 
+        <div v-if="imagesExercice.length > 0">
+          <h2>Images</h2>
+            <v-carousel>
+              <v-carousel-item
+                v-for="(image, i) in exercice.images"
+                :key="i"
+                :src="image"
+              ></v-carousel-item>
+            </v-carousel>
+        </div>
+
       </v-flex>
     </v-layout>
   </v-container>
@@ -55,6 +66,7 @@ export default {
       musclesExercice: [],
       secondaryMusclesExercice: [],
       equipementsExercice: [],
+      imagesExercice: [],
       errors: []
     }
   },
@@ -70,6 +82,9 @@ export default {
       ExercicesService.getExercice(this.$route.params.id)
         .then(response => {
           this.exercice = response.data
+          if (this.exercice.images) {
+            this.imagesExercice = this.exercice.images
+          }
           this.getCategory()
           this.getMusclesExercice()
           this.getSecondaryMusclesExercice()

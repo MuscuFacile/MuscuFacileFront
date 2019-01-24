@@ -32,12 +32,18 @@ export const deleteUserWeight = (email, timestamp) => {
   return axios.delete(url)
 } 
 
-export const insertUser = (email, password) => {
+export const insertUser = (email, password, prenom, nom, taille, age, poids, date) => {
   const url = `${Constants.API_LOCALHOST}/users`
 
   const params = {
     email: email,
-    pass: password
+    pass: password,
+    prenom: prenom,
+    nom: nom,
+    taille: taille,
+    age: age,
+    poids: poids,
+    date: date
   }
 
   return axios.post(url, params)

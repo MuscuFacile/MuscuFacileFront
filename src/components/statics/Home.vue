@@ -1,7 +1,7 @@
 <template>
   <v-content>
       <section>
-        <v-parallax :src="require('@/assets/img/workout1.jpg')" height="600">
+        <v-parallax :src="require('@/assets/img/workout2.jpg')" height="600">
           <v-layout
             column
             align-center
@@ -48,9 +48,8 @@
                       <div class="headline text-xs-center">Suivi de votre poids</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      MuscuFacile possède un module pour suivre l'évolution de votre poids au cours du temps.
+                      Une courbe générée de votre poids vous permettra d'avoir un retour rapide sur vos objectifs.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -60,27 +59,25 @@
                       <v-icon x-large class="blue--text text--lighten-2">fa-dumbbell</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Gestion des entrainements</div>
+                      <div class="headline">Une liste d'exercices complète</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Plus de 200 exercices de musculation, de cardio et de fitness sont disponible avec MuscuFacile.
+                      La possibilité de filter la liste en fonction d'un type de mucle vous permettra de trouver l'exercice idéal suivant vos objectifs définis. 
                     </v-card-text>
                   </v-card>
                 </v-flex>
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">fa-user-friends</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">fa-info-circle</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Création de groupes d'amis</div>
+                      <div class="headline text-xs-center">Un affichage détaillé</div>
                     </v-card-title>
                     <v-card-text>
-                      Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
-                      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                      Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti. 
+                      Chaque exercice possède une description détaillé vous permettant de réaliser le mouvement le plus juste possible durant votre entrainement.
+                      Le détail des exercices vous indique quels muscles sont sollicités durant l'effort.
                     </v-card-text>
                   </v-card>
                 </v-flex>
@@ -91,7 +88,7 @@
       </section>
 
       <section>
-        <v-parallax :src="require('@/assets/img/workout2.jpg')" height="380">
+        <v-parallax :src="require('@/assets/img/workout4.jpg')" height="380">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-3 text-xs-center">Essayer MuscuFacile maintenant</div>
             <router-link to="signup">
@@ -115,8 +112,8 @@
                 <v-card-title primary-title class="layout justify-center">
                   <div class="headline">Informations</div>
                 </v-card-title>
-                <v-card-text>
-                  MuscuFacile est la solution pour gérer vos entrainements, votre suivi de poids et votre régime alimentaire.
+                <v-card-text text-xs-center>
+                  MuscuFacile est la solution pour gérer vos entrainements, votre suivi de poids. Une liste d'exercices est disponible avec une description détaillée pour chacun d'eux.
                 </v-card-text>
               </v-card>
             </v-flex>
