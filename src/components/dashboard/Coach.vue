@@ -14,7 +14,7 @@
 
       <v-card-title primary-title>
         <div>
-          <div class="quote"><b>Tout se passe hors de ta zone de confort</b></div>
+          <blockquote class="blockquote">Tout se passe hors de ta zone de confort</blockquote>
         </div>
       </v-card-title>
     </v-card>
@@ -27,6 +27,4 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.quote
-  font-size: 1.2em
 </style>
