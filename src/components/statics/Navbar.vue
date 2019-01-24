@@ -1,6 +1,7 @@
 <template>
   <v-toolbar>
-    <v-toolbar-title>MuscuFacile</v-toolbar-title>
+    <v-toolbar-title v-if="!isLoggedIn"><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
+    <v-toolbar-title v-if="isLoggedIn"><router-link to="/">MuscuFacile</router-link></v-toolbar-title>
     <v-btn flat v-if="isLoggedIn"><router-link to="/dashboard">Dashboard</router-link></v-btn>
     <v-btn flat v-if="isLoggedIn"><router-link to="/weights">Pesée</router-link></v-btn>
     <v-btn flat v-if="isLoggedIn"><router-link to="/exercices">Exercices</router-link></v-btn>
