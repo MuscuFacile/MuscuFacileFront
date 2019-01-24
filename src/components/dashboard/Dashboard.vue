@@ -12,7 +12,7 @@
           <recommandations></recommandations>
         </v-flex>
         <v-flex xs8 class="my-2">
-          <masse-chart></masse-chart>
+          <weights-chart></weights-chart>
         </v-flex>
         <v-flex xs4 class="my-2">
           <muscles-chart></muscles-chart>
@@ -26,7 +26,7 @@
 import Coach from '@/components/dashboard/Coach'
 import Imc from '@/components/dashboard/Imc'
 import Recommandations from '@/components/dashboard/Recommandations'
-import MasseChart from '@/components/charts/MasseChart'
+import WeightsChart from '@/components/charts/WeightsChart'
 import MusclesChart from '@/components/charts/MusclesChart'
 
 export default {
@@ -35,7 +35,7 @@ export default {
     Coach,
     Imc,
     Recommandations,
-    MasseChart,
+    WeightsChart,
     MusclesChart
   }
 }

@@ -25,7 +25,7 @@
       <v-divider></v-divider>
 
       <v-card-text>
-        &copy;2018 — <strong>MuscuFacile</strong>
+        &copy;2019 — <strong>MuscuFacile</strong>
       </v-card-text>
     </v-card>
 
