@@ -1,7 +1,7 @@
 <template>
   <v-content>
       <section>
-        <v-parallax :src="require('@/assets/img/workout1.jpg')" height="600">
+        <v-parallax :src="require('@/assets/img/workout2.jpg')" height="600">
           <v-layout
             column
             align-center
@@ -60,7 +60,7 @@
                       <v-icon x-large class="blue--text text--lighten-2">fa-dumbbell</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline">Gestion des entrainements</div>
+                      <div class="headline">Une liste d'exercices complète</div>
                     </v-card-title>
                     <v-card-text>
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
@@ -72,10 +72,10 @@
                 <v-flex xs12 md4>
                   <v-card class="elevation-0 transparent">
                     <v-card-text class="text-xs-center">
-                      <v-icon x-large class="blue--text text--lighten-2">fa-user-friends</v-icon>
+                      <v-icon x-large class="blue--text text--lighten-2">fa-info-circle</v-icon>
                     </v-card-text>
                     <v-card-title primary-title class="layout justify-center">
-                      <div class="headline text-xs-center">Création de groupes d'amis</div>
+                      <div class="headline text-xs-center">Un affichage détaillé</div>
                     </v-card-title>
                     <v-card-text>
                       Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare. 
@@ -91,7 +91,7 @@
       </section>
 
       <section>
-        <v-parallax :src="require('@/assets/img/workout2.jpg')" height="380">
+        <v-parallax :src="require('@/assets/img/workout4.jpg')" height="380">
           <v-layout column align-center justify-center>
             <div class="headline white--text mb-3 text-xs-center">Essayer MuscuFacile maintenant</div>
             <router-link to="signup">
