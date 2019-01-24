@@ -2,20 +2,14 @@
   <div>
     <v-container grid-list-md text-xs-center>
       <v-layout row wrap>
-        <v-flex xs4 class="my-2">
+        <v-flex xs6 class="my-2">
           <coach></coach>
         </v-flex>
-        <v-flex xs4 class="my-2">
+        <v-flex xs6 class="my-2">
           <imc></imc>
         </v-flex>
-        <v-flex xs4 class="my-2">
-          <recommandations></recommandations>
-        </v-flex>
-        <v-flex xs8 class="my-2">
+        <v-flex xs12 class="my-2">
           <weights-chart></weights-chart>
-        </v-flex>
-        <v-flex xs4 class="my-2">
-          <muscles-chart></muscles-chart>
         </v-flex>
       </v-layout>
     </v-container>

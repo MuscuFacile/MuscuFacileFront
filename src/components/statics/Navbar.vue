@@ -13,10 +13,6 @@
         </v-btn>
         <v-list>
 
-          <router-link to="/profil">
-            <v-list-tile v-if="isLoggedIn">Profil</v-list-tile>
-          </router-link>
-
           <router-link to="/settings">
             <v-list-tile v-if="isLoggedIn"> Réglages</v-list-tile>
           </router-link>
