@@ -3,21 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "jest": "jest",
+    "cypress": "cypress run",
+    "cypress-open": "cypress open"
   },
   "dependencies": {
+    "@vue/cli-plugin-babel": "^3.11.0",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^4.1.1",
+    "axios": "^0.18.1",
+    "chart.js": "^2.7.3",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "vue": "^2.5.17",
+    "vue-chartjs": "^3.4.0",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.2.9"
+    "vuetify": "^1.2.9",
+    "vuex": "^3.0.1",
+    "vuex-persist": "^2.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.3",
-    "@vue/cli-plugin-eslint": "^3.0.3",
-    "@vue/cli-service": "^3.0.3",
+    "babel-eslint": "^10.0.1",
+    "cypress": "^3.4.1",
+    "eslint": "^5.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-cypress": "^2.1.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^25.0.0",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {
@@ -26,13 +45,10 @@
       "node": true
     },
     "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "plugin:vue/recommended"
     ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
+    "parser": "babel-eslint"
   },
   "postcss": {
     "plugins": {

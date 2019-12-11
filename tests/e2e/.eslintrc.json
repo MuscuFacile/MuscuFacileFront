@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    "cypress"
+  ],
+  "rules": {
+    "strict": "off"
+  },
+  "env": {
+    "cypress/globals": true
+  }
+}
